@@ -77,6 +77,17 @@ html {
     flex: 1;
     line-height: 1.4;
   }
+
+  a:-webkit-any-link{
+    color: red !important;
+  }
+  a:visited{
+    color:green!important;
+  }
+
+
+
+
   .card span {
     font-family: "Aleo", serif;
     font-size: 10px;
