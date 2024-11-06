@@ -1,28 +1,26 @@
-:root{
+:root {
     --fondo: #C5D9C7;
     --color_ink: #282724;
 }
 
 html {
     background: var(--fondo);
- 
     -webkit-font-smoothing: antialiased;
-    padding: 20px 0;
-  }
+    padding-bottom: 20px;
+}
 
-  h1{
-    font-family: "Bebas Neue",serif;  
+h1 {
+    font-family: "Bebas Neue", serif;
     color: #4D594F;
-  }
-  
-  header {
+}
+
+header {
     width: 90%;
     max-width: 1240px;
     margin: 0 auto;
-   
-  }
-  
-  .band {
+}
+
+.band {
     width: 90%;
     max-width: 1240px;
     margin: 0 auto;
@@ -30,19 +28,21 @@ html {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 20px;
-  }
-  @media (min-width: 30em) {
+}
+
+@media (min-width: 30em) {
     .band {
-      grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
-  }
-  @media (min-width: 60em) {
+}
+
+@media (min-width: 60em) {
     .band {
-      grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
-  }
-  
-  .card {
+}
+
+.card {
     background: #798C79;
     text-decoration: none;
     color: #444;
@@ -53,37 +53,36 @@ html {
     position: relative;
     top: 0;
     transition: all 0.1s ease-in;
-  }
-  .card:hover {
+}
+
+.card:hover {
     top: -2px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  }
-  .card article {
+}
+
+.card article {
     padding: 20px;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-  .card h1 {
+}
+
+.card h1 {
     font-size: 20px;
     margin: 0;
     font-family: "Open-sans", sans-serif;
     color: #C5D9C7;
-  }
-  .card p {
+}
+
+.card p {
     font-family: "Aleo", serif;
     color: #212529;
     flex: 1;
     line-height: 1.4;
-  }
+}
 
-
-
-
-
-
-  .card span {
+.card span {
     font-family: "Aleo", serif;
     font-size: 10px;
     text-align: right;
@@ -92,18 +91,19 @@ html {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin: 2em 0 0 0;
-  }
-  .card .thumb {
+}
+
+.card .thumb {
     padding-bottom: 60%;
     background-size: cover;
     background-position: center center;
-  }
-  
-  @media (min-width: 60em) {
+}
+
+@media (min-width: 60em) {
     .item-1 {
-      grid-column: 1/span 2;
+        grid-column: 1/span 2;
     }
     .item-1 h1 {
-      font-size: 24px;
+        font-size: 24px;
     }
-  }
+}
