@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+    <title>Articulos</title>
+    <link>https://luummaaya.neocities.org/articulos</link>
+    <description>Página con articulos del Salvamento del Tren Maya</description>
+    <item>
+        <title>El Juego del Patolli. Entre lo Cívico y lo Religioso</title>
+        <link>https://luummaaya.neocities.org/articuloD_01</link>
+        <description>El tablero del patolli, que se ha presentado en varias regiones como Teotihuacan, Tula, y en las tierras bajas mayas, como la encontrada en la estructura T7_44279 es un juego que se realizaba en un tablero cruciforme y que está asociado a un simbolismo
+                    religioso y calendario.</description>
+    </item>
+    <item>
+        <title>La Modificación del Terreno y su Relación con el Agua. El caso de las Terrazas</title>
+        <link>https://luummaaya.neocities.org/articuloD_02</link>
+        <description>Descubrimientos recientes en el tramo 7 del Tren Maya revelan cómo las terrazas mayas eran clave en el manejo del agua y la fertilidad del suelo. Un testimonio del ingenio de una civilización que supo adaptarse y transformar su entorno para prosperar.</description>
+    </item>
+</channel>
+
+</rss>
+                
+
+    
