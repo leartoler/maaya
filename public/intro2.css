@@ -78,7 +78,14 @@ footer {
     background-color: #4D594F;
     padding: .3rem 0 .5rem 0;
     color: #C5D9C7;
-    font-size: .8rem
+    font-size: .8rem;
+    text-align: center
+}
+
+footer p {
+    padding: 0rem 2rem 0rem 2rem;
+    text-align: center;
+    font-size: .8rem;
 }
 
 [tabindex="-1"]:focus {
@@ -102,7 +109,7 @@ h6 {
 }
 
 p {
-    margin-top: 0;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     font-family: "Aleo", serif
 }

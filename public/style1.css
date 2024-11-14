@@ -12,6 +12,7 @@ html {
 h1 {
     font-family: "Bebas Neue", serif;
     color: #4D594F;
+    margin-top: 1rem;
 }
 
 header {
@@ -81,7 +82,6 @@ footer {
 
 .card p {
     font-family: "Aleo", serif;
-    color: #212529;
     flex: 1;
     line-height: 1.4;
 }
