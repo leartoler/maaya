@@ -470,7 +470,11 @@ small {
 .mark,
 mark {
     padding: .2em;
-    background-color: #fcf8e3
+    background-color: #ff0000
+}
+
+ul.no_bullets {
+    list-style-type: none;
 }
 
 .list-unstyled {
