@@ -187,7 +187,8 @@ p:last-child {
     background-color: var(--color_mag);
     border-left: var(--border_sm) solid var(--color_ink);
     border-right: var(--border_sm) solid var(--color_ink);
-    grid-template-areas: ". header header header ." ". subheader subheader subheader ." ". content content content ." ". profile profile profile ." ". work-sample work-sample work-sample ." ". footer footer footer .";
+    display: grid;
+    grid-template-areas: ". header header header ." ". subheader subheader subheader ." ". content content content ." ". footer footer footer .";
     grid-column-gap: var(--gap);
     grid-row-gap: var(--gap_half);
     margin: 0 auto;
@@ -197,7 +198,7 @@ p:last-child {
 @media screen and (min-width: 40.625rem) {
     .o-grid {
         --minmax: 15rem;
-        grid-template-areas: ". header header header ." ". subheader subheader subheader ." ". content content profile ." ". work-sample work-sample profile ." ". footer footer footer .";
+        grid-template-areas: ". header header header ." ". subheader subheader subheader ." ". content content content ." ". footer footer footer .";
     }
 }
 
