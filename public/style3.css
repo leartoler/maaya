@@ -187,7 +187,6 @@ p:last-child {
     background-color: var(--color_mag);
     border-left: var(--border_sm) solid var(--color_ink);
     border-right: var(--border_sm) solid var(--color_ink);
-    display: grid;
     grid-template-areas: ". header header header ." ". subheader subheader subheader ." ". content content content ." ". profile profile profile ." ". work-sample work-sample work-sample ." ". footer footer footer .";
     grid-column-gap: var(--gap);
     grid-row-gap: var(--gap_half);
