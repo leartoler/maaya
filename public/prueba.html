@@ -1,30 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<html> 
+  
+  <head>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"> </script>
+  </head>
+  
+  <body> 
 
-    <article>
-        <h1>Create a Twitter Share button</h1>
+    <a-scene>
       
-      <p>Don't want to add lots of additional, third party scripts to your app for a simple feature? Then you might be curious about how to build your own "Share to Twitter" button!</p>
-      
-      <a href="https://blog.q-bit.me/how-to-create-a-share-to-twitter-button-with-html-css-javascript">Read the article</a>
-      </article>
-    
-      <button id="button--twitter" class="btn btn--blue">
-        <i class="btn__icon">
-          <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-        </i>
-        <span class=btn__text>
-          Compartir
-        </span>
-      </button>
+      <a-gltf-model id="sheep" position="0 0 -3" rotation="0 100 0" src="https://cdn.glitch.com/0fc2d138-1979-4b80-8bae-51eb67b7ccb9%2Fsheep.glb?1544159918188"></a-gltf-model>
+      <a-gltf-model id="statue" position="-4 1.5 -11" rotation="0 15 0" scale=".04 .04 .04" src="https://cdn.glitch.com/7e18fbf8-9686-4cf7-91f9-4a6bbdb54f5e%2Fstatue.glb?1544169724449"></a-gltf-model>
 
-      <script  src="./script.js"></script>
-    
-</body>
+      <a-sky src="https://cdn.glitch.com/7e18fbf8-9686-4cf7-91f9-4a6bbdb54f5e%2Fsky.jpg?1544174075054"></a-sky>
+      
+      <a-plane id="floor" position="0 0 0" rotation="-90 0 0" width="30" height="30" 
+               repeat="5 4" src="https://cdn.glitch.com/c388f728-37b7-4af9-af03-1ee7430663e7%2F4727356277_66fb5f938f_o.jpg?1544178281422"></a-plane>
+
+        
+      <a-dodecahedron position="-8 2 -1" color = "yellow" ></a-dodecahedron>
+      
+      <a-sphere position="10 2 0" color="orange" scale = ".6 .6 .6"></a-sphere>
+      <a-sphere position="10 1.5 -1" color="brown" scale = ".4 .4 .4"></a-sphere>
+      <a-sphere position="10 1.5 1" color="brown" scale = ".4 .4 .4"></a-sphere>
+      <a-sphere position="10 2.7 .8" color="brown" scale = ".4 .4 .4"></a-sphere>
+
+      
+      
+      <a-plane position="0 1.5 -15" color="#643200" scale="30 3 30"></a-plane>
+      <a-plane position="15 1.5 0" rotation="0 -90 0" color="#643200" scale = "30 3 30"></a-plane>
+      <a-plane position="0 1.5 15" rotation="0 180 0" color="#643200" scale = "30 3 30"></a-plane>
+      <a-plane position="-15 1.5 0" rotation="0 90 0" color="#643200" scale = "30 3 30"></a-plane>
+
+
+      <a-box position="4 1 -8" scale="2 2 2" color="black"></a-box>
+      <a-torus-knot position="4 4 -8" color="#408080"></a-torus-knot>
+      
+      <a-box position="-10 1 -10" scale=".5 2 .5" color="#552b00"></a-box>
+      <a-cone position="-10 3.2 -10" color="green" scale="1 3 1"></a-cone>
+      
+      <a-box position="-9 1 -12" scale=".5 2 .5" color="#552b00"></a-box>
+      <a-cone position="-9 3.2 -12" scale="1 3 1" color="green"></a-cone>
+      
+      <!-- tree -->
+      <a-box position="10 1 10" scale=".5 2 .5" color="#552b00"></a-box>
+      <a-cone position="10 3.2 10" color="green" scale="1 3 1"></a-cone>
+      
+      <!-- tree -->
+      <a-box position="9 1 12" scale=".5 2 .5" color="#552b00"></a-box>
+      <a-cone position="9 3.2 12" scale="1 3 1" color="green"></a-cone>
+     
+      <a-box position="-8 3 10" rotation="0 -45 0" scale="6 2 2" color="#80ffff"></a-box>
+      <a-box position="-8 1 10" rotation="0 -45 0" scale ="1 2 1" color="#592d00"></a-box>
+      
+      <a-box position="0 1 10" scale="2 2 2" color="black"></a-box>
+      <a-tetrahedron position="0 3.5 10" rotation="-12 -180 65" color="#FF926B" radius="5" scale=".5 .5 .5" ></a-tetrahedron>
+
+
+    </a-scene>
+  </body>
+  
 </html>
