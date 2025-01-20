@@ -253,6 +253,10 @@ p:last-child {
     }
 }
 
+li {
+    text-align: left;
+}
+
 .o-profile:after {
     width: 100%;
     height: 100%;
