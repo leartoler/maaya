@@ -4085,7 +4085,7 @@ tbody.collapse.show {
     display: block;
     padding: .5rem 1rem;
     color: #C5D9C7;
-    font-size: 1rem
+    font-size: 1rem;
 }
 
 .nav-link:focus,
@@ -4158,7 +4158,7 @@ tbody.collapse.show {
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
-    text-align: center
+    text-align: right
 }
 
 .tab-content>.tab-pane {
