@@ -667,6 +667,9 @@ pre code {
     padding-left: 0
 }
 
+
+/*Columnas*/
+
 .col,
 .col-1,
 .col-10,
@@ -1784,6 +1787,9 @@ pre code {
     }
 }
 
+
+/*---*/
+
 .table {
     width: 100%;
     max-width: 100%;
@@ -2608,6 +2614,9 @@ select.form-control-lg:not([size]):not([multiple]) {
         margin-bottom: 0
     }
 }
+
+
+/*----------------------------------------------------------------------------------------*/
 
 .btn {
     display: inline-block;
@@ -3686,6 +3695,9 @@ tbody.collapse.show {
     pointer-events: none
 }
 
+
+/*---Input group. Se quita*/
+
 .input-group {
     position: relative;
     display: -webkit-box;
@@ -3837,6 +3849,12 @@ tbody.collapse.show {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0
 }
+
+
+/*----------------------*/
+
+
+/*---Custom file. Se va a quitar---*/
 
 .custom-control {
     position: relative;
@@ -4077,7 +4095,10 @@ tbody.collapse.show {
     border-radius: 0 .25rem .25rem 0
 }
 
---------------- .nav {
+
+/*---nav bar---*/
+
+.nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4676,6 +4697,12 @@ tbody.collapse.show {
     color: #fff
 }
 
+
+/*---fin nav bar---*/
+
+
+/* --- Card --- */
+
 .card {
     position: relative;
     display: -webkit-box;
@@ -4947,6 +4974,12 @@ tbody.collapse.show {
     }
 }
 
+
+/* --- */
+
+
+/* --- breadcrumb.Quitar --- */
+
 .breadcrumb {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4979,6 +5012,12 @@ tbody.collapse.show {
 .breadcrumb-item.active {
     color: #6c757d
 }
+
+
+/* --- */
+
+
+/* --- Pagination --- */
 
 .pagination {
     display: -webkit-box;
@@ -5074,6 +5113,9 @@ tbody.collapse.show {
     border-top-right-radius: .2rem;
     border-bottom-right-radius: .2rem
 }
+
+
+/* --- */
 
 .badge {
     display: inline-block;
