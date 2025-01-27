@@ -4070,7 +4070,7 @@ tbody.collapse.show {
     border-radius: 0 .25rem .25rem 0
 }
 
---------------- .nav {
+.nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
