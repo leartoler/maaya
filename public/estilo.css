@@ -83,7 +83,11 @@ p {
 }
 
 ul {
-    font-size: 0.9rem;
+    text-align: justify;
+}
+
+li {
+    font-size: 0.8rem;
     line-height: 1.7;
     text-align: justify;
     font-family: "Open Sans", sans-serif;
