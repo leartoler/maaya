@@ -79,7 +79,14 @@ p {
     line-height: 1.7;
     margin-top: 0;
     text-align: justify;
-    font-family: "Open Sans", sans-serif
+    font-family: "Open Sans", sans-serif;
+}
+
+ul {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    text-align: justify;
+    font-family: "Open Sans", sans-serif;
 }
 
 footer p {

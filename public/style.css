@@ -72,7 +72,9 @@ p {
     font-size: 0.9rem;
     line-height: 1.7;
     margin-top: 0;
-    text-align: justify;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    align-content: center;
 }
 
 @media screen and (min-width: 40.625rem) {
@@ -329,4 +331,10 @@ li {
     columns: var(--mag_col);
     -moz-column-gap: var(--gap);
     column-gap: var(--gap);
+}
+
+.map {
+    width: 100%;
+    max-width: 500px;
+    display: block;
 }
