@@ -92,7 +92,7 @@ $nivel.innerHTML = "Nivel # :" + (level + 1);
 
 var i = 0;
 //decir cual es el target a buscar 
-$target.innerHTML = "Busca una banana"
+$target.innerHTML = "Busca el glifo de Ella/Norte"
 
 //creo un metodo en el que se ejecuten a partir de los clicks la funcio getdishint que me da un mensaje
 $map.addEventListener("click", function(e) {
