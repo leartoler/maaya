@@ -39,7 +39,7 @@ let getDistanceHint = (distance) => {
 
 
 
-        e
+
         return "FRIO";
     } else if (distance < 170) {
         //cambio colr de fondo 
@@ -53,47 +53,47 @@ let getDistanceHint = (distance) => {
 }
 
 
-const W = 100;
-const H = 100;
+
+
+const W = 215;
+const H = 215;
 
 //Na - Ella/norte
 let target = {
-    x: 350, //getRandom(W),
-    y: 800 //getRandom(H)
+    x: 241, //getRandom(W),
+    y: 339 //getRandom(H)
 };
 
 //Hih - Cosechado
 let target2 = {
+    x: 289,
+    y: 340
 
 };
 
 //Chi Kín - Oeste
 let target3 = {
-
+    x: 340,
+    y: 344
 };
 
 //Ox wil - Mucha comida
 let target4 = {
-
+    x: 288,
+    y: 374
 };
 
 //K'in Ajaw - Sagrado sol
 let target5 = {
-
+    x: 337,
+    y: 380
 };
 
 //Xul men - Fin del trabajo
 let target6 = {
-
+    x: 384,
+    y: 381
 };
-
-
-
-
-
-
-
-
 //llamo las instacios que necesito del juego.html
 //llamo el mapa para saber sus dimensiones
 let $map = document.getElementById("map");
@@ -145,7 +145,7 @@ $map.addEventListener("click", function(e) {
     //paso al nivel siguiente "2"
     if (level == 1) {
         //decir cual es el target a buscar 
-        $target.innerHTML = "Busca un pinguino"
+        $target.innerHTML = "Busca el glifo de Hih - Cosechado"
 
         //imprimo el nivel en el que se encuentra el cliente
         $nivel.innerHTML = "Nivel # : " + (level + 1);
@@ -182,7 +182,7 @@ $map.addEventListener("click", function(e) {
     //paso al nivel"3"
     if (level == 2) {
         //decir cual es el target a buscar 
-        $target.innerHTML = "Busca un plato de sopa"
+        $target.innerHTML = "Busca el glifo de Chi K'in - Oeste"
         $nivel.innerHTML = " Nivel # : " + (level + 1);
         clicks++;
         let distance = getDistance(e, target3);
@@ -202,7 +202,120 @@ $map.addEventListener("click", function(e) {
             level++;
             clicks = -1;
             i = 0;
+        }
+    }
 
+    //paso al nivel siguiente "4"
+    if (level == 1) {
+        //decir cual es el target a buscar 
+        $target.innerHTML = "Busca el glifo de Ox Wil - Mucha comida"
+
+        //imprimo el nivel en el que se encuentra el cliente
+        $nivel.innerHTML = "Nivel # : " + (level + 1);
+        //contador de clicks
+        clicks++;
+        //traigo la info de distancia entre  traget dos y el click
+        let distance = getDistance(e, target4);
+        //llamo metodo que me da mensaje
+        let distanceHint = getDistanceHint(distance);
+        //pantalla negra cuando comience nuevo nivel
+        if (i == 0) {
+            //pongo bg negro
+            body.setAttribute("class", "bg-dark text-white ");
+            i++;
+        }
+
+        //--------------------------------------
+        //console.log(distance);
+        //entrego y ejecuto el mensaje de distanceHint a la instacia que habia creado
+        $distance.innerHTML = distanceHint;
+        //creo un condicional si estoy cerca del target
+        if (distance < 15) {
+            //alerta de ganador
+            alert("GANASTE ¡SEGUNDO NIVEL DESBLOQUEADO!!: " + clicks + " CLIKS");
+            //location.reload();
+            //aumento contador de nivel para que se pueda pasar al siguiente condicional
+            level++;
+            //le resto 1 al click para que empieze en cero el nuevo nivel
+            clicks = -1;
+            //hago i =0 para que el bg del proximo nivel empieze negro
+            i = 0;
+        }
+    }
+
+    //paso al nivel siguiente "5"
+    if (level == 1) {
+        //decir cual es el target a buscar 
+        $target.innerHTML = "Busca el glifo de K'in Ajaw - Segundo sol"
+
+        //imprimo el nivel en el que se encuentra el cliente
+        $nivel.innerHTML = "Nivel # : " + (level + 1);
+        //contador de clicks
+        clicks++;
+        //traigo la info de distancia entre  traget dos y el click
+        let distance = getDistance(e, target5);
+        //llamo metodo que me da mensaje
+        let distanceHint = getDistanceHint(distance);
+        //pantalla negra cuando comience nuevo nivel
+        if (i == 0) {
+            //pongo bg negro
+            body.setAttribute("class", "bg-dark text-white ");
+            i++;
+        }
+
+        //--------------------------------------
+        //console.log(distance);
+        //entrego y ejecuto el mensaje de distanceHint a la instacia que habia creado
+        $distance.innerHTML = distanceHint;
+        //creo un condicional si estoy cerca del target
+        if (distance < 15) {
+            //alerta de ganador
+            alert("GANASTE ¡SEGUNDO NIVEL DESBLOQUEADO!!: " + clicks + " CLIKS");
+            //location.reload();
+            //aumento contador de nivel para que se pueda pasar al siguiente condicional
+            level++;
+            //le resto 1 al click para que empieze en cero el nuevo nivel
+            clicks = -1;
+            //hago i =0 para que el bg del proximo nivel empieze negro
+            i = 0;
+        }
+    }
+
+    //paso al nivel siguiente "2"
+    if (level == 1) {
+        //decir cual es el target a buscar 
+        $target.innerHTML = "Busca el glifo de Xul men - Fin del trabajo"
+
+        //imprimo el nivel en el que se encuentra el cliente
+        $nivel.innerHTML = "Nivel # : " + (level + 1);
+        //contador de clicks
+        clicks++;
+        //traigo la info de distancia entre  traget dos y el click
+        let distance = getDistance(e, target6);
+        //llamo metodo que me da mensaje
+        let distanceHint = getDistanceHint(distance);
+        //pantalla negra cuando comience nuevo nivel
+        if (i == 0) {
+            //pongo bg negro
+            body.setAttribute("class", "bg-dark text-white ");
+            i++;
+        }
+
+        //--------------------------------------
+        //console.log(distance);
+        //entrego y ejecuto el mensaje de distanceHint a la instacia que habia creado
+        $distance.innerHTML = distanceHint;
+        //creo un condicional si estoy cerca del target
+        if (distance < 15) {
+            //alerta de ganador
+            alert("GANASTE ¡SEGUNDO NIVEL DESBLOQUEADO!!: " + clicks + " CLIKS");
+            //location.reload();
+            //aumento contador de nivel para que se pueda pasar al siguiente condicional
+            level++;
+            //le resto 1 al click para que empieze en cero el nuevo nivel
+            clicks = -1;
+            //hago i =0 para que el bg del proximo nivel empieze negro
+            i = 0;
         }
     }
 });
