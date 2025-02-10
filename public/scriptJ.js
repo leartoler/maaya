@@ -206,7 +206,7 @@ $map.addEventListener("click", function(e) {
     }
 
     //paso al nivel siguiente "4"
-    if (level == 1) {
+    if (level == 3) {
         //decir cual es el target a buscar 
         $target.innerHTML = "Busca el glifo de Ox Wil - Mucha comida"
 
@@ -244,7 +244,7 @@ $map.addEventListener("click", function(e) {
     }
 
     //paso al nivel siguiente "5"
-    if (level == 1) {
+    if (level == 4) {
         //decir cual es el target a buscar 
         $target.innerHTML = "Busca el glifo de K'in Ajaw - Segundo sol"
 
@@ -281,8 +281,8 @@ $map.addEventListener("click", function(e) {
         }
     }
 
-    //paso al nivel siguiente "2"
-    if (level == 1) {
+    //paso al nivel siguiente "6"
+    if (level == 5) {
         //decir cual es el target a buscar 
         $target.innerHTML = "Busca el glifo de Xul men - Fin del trabajo"
 
