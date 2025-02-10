@@ -53,26 +53,46 @@ let getDistanceHint = (distance) => {
 }
 
 
-const W = 50;
-const H = 50;
+const W = 100;
+const H = 100;
 
-//banano escondida detras de arbol
+//Na - Ella/norte
 let target = {
-    x: 55, //getRandom(W),
-    y: 174 //getRandom(H)
+    x: 350, //getRandom(W),
+    y: 800 //getRandom(H)
 };
 
-//Pinguino
+//Hih - Cosechado
 let target2 = {
-    x: 192,
-    y: 103
+
 };
 
-//Planto de sopa
+//Chi Kín - Oeste
 let target3 = {
-    x: 90,
-    y: 183
+
 };
+
+//Ox wil - Mucha comida
+let target4 = {
+
+};
+
+//K'in Ajaw - Sagrado sol
+let target5 = {
+
+};
+
+//Xul men - Fin del trabajo
+let target6 = {
+
+};
+
+
+
+
+
+
+
 
 //llamo las instacios que necesito del juego.html
 //llamo el mapa para saber sus dimensiones
