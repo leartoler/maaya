@@ -430,7 +430,8 @@ ul {
     display: block;
     padding: .5rem 1rem;
     color: #C5D9C7;
-    font-size: 1rem
+    font-size: 1rem;
+    text-align: center;
 }
 
 .nav-link:focus,
