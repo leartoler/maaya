@@ -1,5 +1,18 @@
-const symbols = ['🍎', '🍌', '🍒', '🍇', '🍉', '🥭', '🍍', '🥝'];
-let cards = [...symbols, ...symbols];
+const pairs = [
+    { image: 'https://luummaaya.neocities.org/Images/juego02_1.jpg', text: 'Palenque' },
+    { image: 'https://luummaaya.neocities.org/Images/juego02_2.jpg', text: 'Ek Balam' },
+    { image: 'https://luummaaya.neocities.org/Images/juego02_3.jpg', text: 'El Tigre' },
+    { image: 'https://luummaaya.neocities.org/Images/juego02_4.jpg', text: 'Edzna' },
+    { image: 'https://luummaaya.neocities.org/Images/juego02_5.jpg', text: 'Xcalumkin' },
+    { image: 'https://luummaaya.neocities.org/Images/juego02_6.jpg', text: 'Tulum' },
+    { image: 'https://luummaaya.neocities.org/Images/juego02_7.jpg', text: 'Chichen Itza' },
+    { image: 'https://luummaaya.neocities.org/Images/juego02_8.jpg', text: 'Calakmul' }
+];
+
+let cards = pairs.flatMap(pair => [
+    { type: 'image', content: pair.image, pairId: pair.text },
+    { type: 'text', content: pair.text, pairId: pair.text }
+]);
 let flippedCards = [];
 let matchedPairs = 0;
 let score = 0;
@@ -16,10 +29,31 @@ function createBoard() {
     const board = document.getElementById("gameBoard");
     board.innerHTML = '';
     cards = shuffle(cards);
-    cards.forEach(symbol => {
+    cards.forEach(cardData => {
         const card = document.createElement("div");
         card.classList.add("card");
-        card.dataset.symbol = symbol;
+        card.dataset.pairId = cardData.pairId;
+
+        const cardInner = document.createElement("div");
+        cardInner.classList.add("card-inner");
+
+        const front = document.createElement("div");
+        front.classList.add("card-front");
+        front.textContent = "?";
+
+        const back = document.createElement("div");
+        back.classList.add("card-back");
+
+        if (cardData.type === 'image') {
+            back.innerHTML = `<img src="${cardData.content}" alt="Image">`;
+        } else {
+            back.textContent = cardData.content;
+        }
+
+        cardInner.appendChild(front);
+        cardInner.appendChild(back);
+        card.appendChild(cardInner);
+
         card.addEventListener("click", flipCard);
         board.appendChild(card);
     });
@@ -28,7 +62,6 @@ function createBoard() {
 function flipCard() {
     if (flippedCards.length < 2 && !this.classList.contains("flipped")) {
         this.classList.add("flipped");
-        this.textContent = this.dataset.symbol;
         flippedCards.push(this);
     }
     if (flippedCards.length === 2) {
@@ -37,12 +70,12 @@ function flipCard() {
 }
 
 function checkMatch() {
-    if (flippedCards[0].dataset.symbol === flippedCards[1].dataset.symbol) {
+    if (flippedCards[0].dataset.pairId === flippedCards[1].dataset.pairId) {
         flippedCards = [];
         matchedPairs++;
         score += 10;
         updateScore();
-        if (matchedPairs === symbols.length) {
+        if (matchedPairs === pairs.length) {
             setTimeout(() => {
                 triggerFireworks();
                 alert("You win!");
@@ -50,10 +83,7 @@ function checkMatch() {
         }
     } else {
         setTimeout(() => {
-            flippedCards.forEach(card => {
-                card.classList.remove("flipped");
-                card.textContent = "";
-            });
+            flippedCards.forEach(card => card.classList.remove("flipped"));
             flippedCards = [];
             score -= 5;
             updateScore();
