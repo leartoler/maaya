@@ -2130,7 +2130,6 @@ tbody.collapse.show {
 body {
     font-family: Arial, sans-serif;
     padding: 10px;
-    background: transparent;
 }
 
 .game-wrapper {
@@ -2191,12 +2190,12 @@ body {
 }
 
 .card-front {
-    background-color: #3498db;
+    background-color: #4D594F;
     color: white;
 }
 
 .card-back {
-    background-color: #2ecc71;
+    background-color: #C5D9C7;
     transform: rotateY(180deg);
     font-size: 18px;
     font-weight: bold;
