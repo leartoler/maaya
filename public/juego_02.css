@@ -77,13 +77,8 @@ footer {
     font-size: .8rem;
     text-align: center;
     margin-top: 2rem;
-}
-
-footer p {
-    padding: .3rem 0 0 0;
-    text-align: center;
-    font-size: .8rem;
-    font-weight: bold;
+    position: fixed;
+    bottom: 0;
 }
 
 p {
