@@ -71,14 +71,12 @@ figcaption {
 }
 
 footer {
+    margin-top: 2rem;
     background-color: #4D594F;
     padding: .3rem 0 0 0;
     color: #C5D9C7;
     font-size: .8rem;
     text-align: center;
-    margin-top: 2rem;
-    position: fixed;
-    bottom: 0;
 }
 
 p {
@@ -280,6 +278,12 @@ ul {
         --minmax: 15rem;
         grid-template-areas: ". header header header ." ". subheader subheader subheader ." ". content content profile ." ". work-sample work-sample profile ." ". footer footer footer .";
     }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 
