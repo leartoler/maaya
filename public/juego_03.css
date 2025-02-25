@@ -12,13 +12,13 @@
 /*** global varialables ***/
 
 :root {
-    --common-color1: #c72113;
-    --common-color2: #2674c3;
+    --common-color1: #C5D9C7;
+    --common-color2: #798C79;
 }
 
 html {
     overflow: hidden;
-    background-image: url(https://www.mexicodesconocido.com.mx/wp-content/uploads/2018/10/Calakmul-dreamstime_xxl_20482914.jpg);
+    background-image: url(https://luummaaya.neocities.org/Images/background.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -115,7 +115,7 @@ body {
     line-height: 36px;
     border: solid 2px rgba(255, 255, 255, 0.4);
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.4);
     color: #fff;
     font-size: 20rem;
     font-weight: bold;
@@ -235,15 +235,6 @@ body {
     }
 }
 
-@keyframes neon {
-    from {
-        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #0052ff, 0 0 35px #0052ff, 0 0 40px #0052ff, 0 0 50px #0052ff, 0 0 75px #0052ff;
-    }
-    to {
-        box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px #fff, 0 0 10px #0052ff, 0 0 17px #0052ff, 0 0 20px #0052ff, 0 0 25px #0052ff, 0 0 37px #0052ff;
-    }
-}
-
 @keyframes curtain {
     from {
         height: 100vh;
@@ -272,7 +263,7 @@ body {
 
 .corona-world,
 .corona-virus {
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><filter id='grayscale'><feColorMatrix type='saturate' values='0.10'/></filter><text y='50%'>🧼</text></svg>") 16 0, auto;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><filter id='grayscale'><feColorMatrix type='saturate' values='0.10'/></filter><text y='50%'>🌿</text></svg>") 16 0, auto;
     /*!emojicursor.app*/
 }
 
@@ -396,7 +387,7 @@ body {
 /*** Common Virus ***/
 
 .corona-virus {
-    --coronaColor: #000;
+    --coronaColor: #798C79;
     position: relative;
     z-index: 10;
     display: block;
