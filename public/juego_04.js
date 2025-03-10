@@ -49,11 +49,11 @@ function handleGuess(letter, btn) {
 // Check if player won or lost
 function checkGameStatus() {
     if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
-        message.textContent = "You Win!";
+        message.textContent = "Ganaste";
         showWordInfo();
         lettersDiv.innerHTML = "";
     } else if (attempts === 0) {
-        message.textContent = `You Lost! The word was "${selectedWord}"`;
+        message.textContent = `Perdiste. La palabre era "${selectedWord}"`;
         showWordInfo();
         lettersDiv.innerHTML = "";
     }
@@ -61,7 +61,7 @@ function checkGameStatus() {
 
 // Show word information in modal
 function showWordInfo() {
-    wordTitle.textContent = `Word: ${selectedWord}`;
+    wordTitle.textContent = `Palabra: ${selectedWord}`;
     wordMeaning.textContent = words[selectedWord];
     modal.style.display = "flex";
 }
