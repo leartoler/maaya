@@ -1,17 +1,88 @@
-/* Error: There is no module with the namespace "color".
- *     ,
- * 197 |                         background-color: color.adjust(#3b5998, $lightness: 10%);
- *     |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *     '
- *   juego_02.scss 197:43  root stylesheet */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: There is no module with the namespace "color".\a     \2577 \a 197 \2502                          background-color: color.adjust(#3b5998, $lightness: 10%);\d\a     \2502                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a     \2575 \a   juego_02.scss 197:43  root stylesheet';
+
+/* Word Display */
+
+#word-display {
+    font-size: 24px;
+    letter-spacing: 10px;
+}
+
+
+/* Button Styling */
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+
+/* Modal (Pop-Up) */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    transform: scale(0.8);
+    animation: popIn 0.3s ease-in-out forwards;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
 }
