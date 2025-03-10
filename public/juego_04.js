@@ -1,5 +1,5 @@
 const words = {
-    "K uhul ajaw": "Dentro de los mayas, la autoriadad se depositaba en bajo el título de ajaw. Pero fue hasta finales del siglo IV, los supremos gobernantes se destinguían de la clase señorial haciéndose llamar K'uhul ajaw, o Señor Divino ",
+    "k uhul ajaw": "Dentro de los mayas, la autoriadad se depositaba en bajo el título de ajaw. Pero fue hasta finales del siglo IV, los supremos gobernantes se destinguían de la clase señorial haciéndose llamar K'uhul ajaw, o Señor Divino ",
 
 };
 
