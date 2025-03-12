@@ -1,20 +1,15 @@
 const words = {
-    "Batab": "Gobernante de un batabil, con funciones administrativas, judiciales y militares",
-    "Batabil": "Unidad territorial bajo la jurisdicción de un batab",
-    "Cuchabal": "Provincia maya gobernada por un Halach Uinic",
-    "Cuchteel": "Unidad territorial básica dentro de un cuchabal, compuesta por familias extensas",
-    "Multepal": "Sistema de gobierno confederado, donde el poder era compartido entre varias familias gobernantes",
-    "Tzucub": "Institución que agrupaba linajes gobernantes",
-    "Almehen": "Noble de linaje distinguido",
-    "Nacom": "Jefe militar o sacerdote",
+    "batab": "Gobernante de un batabil, con funciones administrativas, judiciales y militares",
+    "batabil": "Unidad territorial bajo la jurisdicción de un batab",
+    "cuchabal": "Provincia maya gobernada por un Halach Uinic",
+    "cuchteel": "Unidad territorial básica dentro de un cuchabal, compuesta por familias extensas",
+    "multepal": "Sistema de gobierno confederado, donde el poder era compartido entre varias familias gobernantes",
+    "tzucub": "Institución que agrupaba linajes gobernantes",
+    "almehen": "Noble de linaje distinguido",
+    "nacom": "Jefe militar o sacerdote",
     "ajaw": "Dentro de los mayas, la autoriadad se depositaba en bajo el título de ajaw y abarca también a todos los miembros de la casta gobernante. Sin embargozfue hasta finales del siglo IV, los supremos gobernantes se destinguían de la clase señorial haciéndose llamar K'uhul ajaw, o Señor Divino ",
     "kaloomte": "El título kaloomte' (conocido por mucho tiempo como Batab) fue de suma importancia y se restringió a las dinastías más poderosas del Clásico. Cuando se anteponía el prefijo ochk'inm 'oeste', se elegaba su legitimidad como proveniente de Teotihuacán.",
 };
-
-
-
-
-
 
 let selectedWord = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)];
 let guessedLetters = [];
@@ -28,6 +23,15 @@ const modal = document.getElementById("word-info-modal");
 const wordTitle = document.getElementById("word-title");
 const wordMeaning = document.getElementById("word-meaning");
 const closeModal = document.querySelector(".close");
+
+const correctSound = new Audio("https://luummaaya.neocities.org/Sonidos/correct.mp3");
+const wrongSound = new Audio("https://luummaaya.neocities.org/Sonidos/wrong.mp3");
+const winSound = new Audio("https://luummaaya.neocities.org/Sonidos/win.mp3");
+const loseSound = new Audio("https://luummaaya.neocities.org/Sonidos/lose.mp3");
+
+
+
+
 
 // Display underscores for the word
 function updateWordDisplay() {
@@ -51,9 +55,11 @@ function handleGuess(letter, btn) {
     btn.disabled = true;
     if (selectedWord.includes(letter)) {
         guessedLetters.push(letter);
+        correctSound.play();
     } else {
         attempts--;
         attemptsSpan.textContent = attempts;
+        wrongSound.play();
     }
     checkGameStatus();
     updateWordDisplay();
@@ -65,10 +71,12 @@ function checkGameStatus() {
         message.textContent = "Ganaste";
         showWordInfo();
         lettersDiv.innerHTML = "";
+        winSound.play();
     } else if (attempts === 0) {
         message.textContent = `Perdiste. La palabre era "${selectedWord}"`;
         showWordInfo();
         lettersDiv.innerHTML = "";
+        loseSound.play();
     }
 }
 
