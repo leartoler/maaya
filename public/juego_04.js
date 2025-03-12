@@ -1,7 +1,20 @@
 const words = {
+    "Batab": "Gobernante de un batabil, con funciones administrativas, judiciales y militares",
+    "Batabil": "Unidad territorial bajo la jurisdicción de un batab",
+    "Cuchabal": "Provincia maya gobernada por un Halach Uinic",
+    "Cuchteel": "Unidad territorial básica dentro de un cuchabal, compuesta por familias extensas",
+    "Multepal": "Sistema de gobierno confederado, donde el poder era compartido entre varias familias gobernantes",
+    "Tzucub": "Institución que agrupaba linajes gobernantes",
+    "Almehen": "Noble de linaje distinguido",
+    "Nacom": "Jefe militar o sacerdote",
     "ajaw": "Dentro de los mayas, la autoriadad se depositaba en bajo el título de ajaw y abarca también a todos los miembros de la casta gobernante. Sin embargozfue hasta finales del siglo IV, los supremos gobernantes se destinguían de la clase señorial haciéndose llamar K'uhul ajaw, o Señor Divino ",
-
+    "kaloomte": "El título kaloomte' (conocido por mucho tiempo como Batab) fue de suma importancia y se restringió a las dinastías más poderosas del Clásico. Cuando se anteponía el prefijo ochk'inm 'oeste', se elegaba su legitimidad como proveniente de Teotihuacán.",
 };
+
+
+
+
+
 
 let selectedWord = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)];
 let guessedLetters = [];
