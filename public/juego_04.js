@@ -26,16 +26,15 @@ const wordTitle = document.getElementById("word-title");
 const wordMeaning = document.getElementById("word-meaning");
 const closeModal = document.querySelector(".close");
 
-const correctSound = new Audio("https://luummaaya.neocities.org/Sonidos/correct.mp3");
-const wrongSound = new Audio("https://luummaaya.neocities.org/Sonidos/wrong.mp3");
-const winSound = new Audio("https://luummaaya.neocities.org/Sonidos/win.mp3");
-const loseSound = new Audio("https://luummaaya.neocities.org/Sonidos/lose.mp3");
+// 🎵 Load Sounds
+const correctSound = new Audio("correct.mp3");
+const wrongSound = new Audio("wrong.mp3");
+const winSound = new Audio("win.mp3");
+const loseSound = new Audio("lose.mp3");
 
+// 🎆 Fireworks container
 document.body.insertAdjacentHTML("beforeend", '<div id="fireworks-container"></div>');
 const fireworksContainer = document.getElementById("fireworks-container");
-
-
-
 
 // Display underscores for the word
 function updateWordDisplay() {
@@ -60,12 +59,12 @@ function handleGuess(letter, btn) {
     btn.disabled = true;
     if (selectedWord.includes(letter)) {
         guessedLetters.push(letter);
-        btn.classList.add("correct");
+        btn.classList.add("correct"); // ✅ Green color for correct guess
         correctSound.play();
     } else {
         attempts--;
         attemptsSpan.textContent = attempts;
-        btn.classList.add("wrong");
+        btn.classList.add("wrong"); // ❌ Red color for wrong guess
         wrongSound.play();
     }
     checkGameStatus();
@@ -75,27 +74,26 @@ function handleGuess(letter, btn) {
 // Check if player won or lost
 function checkGameStatus() {
     if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
-        message.textContent = "Ganaste";
+        message.textContent = "🎉 You Win!";
+        winSound.play();
         showWordInfo();
         lettersDiv.innerHTML = "";
-        winSound.play();
         score += 10;
         scoreSpan.textContent = score;
         startFireworks();
     } else if (attempts === 0) {
-        message.textContent = `Perdiste. La palabre era "${selectedWord}"`;
+        message.textContent = `💀 You Lost! The word was "${selectedWord}"`;
         loseSound.play();
         showWordInfo();
         lettersDiv.innerHTML = "";
         score = 0;
         scoreSpan.textContent = score;
-
     }
 }
 
 // Show word information in modal
 function showWordInfo() {
-    wordTitle.textContent = `Palabra: ${selectedWord}`;
+    wordTitle.textContent = `Word: ${selectedWord}`;
     wordMeaning.textContent = words[selectedWord];
     modal.style.display = "flex";
 }
@@ -117,13 +115,14 @@ function startFireworks() {
     }, 300);
 }
 
-// Create a single firework
+// Create a firework explosion
 function createFirework() {
     const firework = document.createElement("div");
     firework.className = "firework";
     firework.style.left = `${Math.random() * 100}%`;
     firework.style.top = `${Math.random() * 70}%`;
     firework.style.backgroundColor = getRandomColor();
+
     fireworksContainer.appendChild(firework);
     setTimeout(() => firework.remove(), 800);
 }
@@ -133,8 +132,6 @@ function getRandomColor() {
     const colors = ["red", "blue", "yellow", "green", "orange", "purple", "pink", "white"];
     return colors[Math.floor(Math.random() * colors.length)];
 }
-
-
 
 // Restart the game
 function restartGame() {
