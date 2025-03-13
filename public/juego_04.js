@@ -31,8 +31,13 @@ const wrongSound = new Audio("https://luummaaya.neocities.org/Sonidos/wrong.mp3"
 const winSound = new Audio("https://luummaaya.neocities.org/Sonidos/win.mp3");
 const loseSound = new Audio("https://luummaaya.neocities.org/Sonidos/lose.mp3");
 
-document.body.insertAdjacentHTML("beforeend", '<div id="fireworks-container"></div>');
-const fireworksContainer = document.getElementById("fireworks-container");
+// 🎆 Fireworks container
+const fireworksContainer = document.createElement("div");
+fireworksContainer.id = "fireworks-container";
+document.body.appendChild(fireworksContainer);
+
+
+
 
 // Display underscores for the word
 function updateWordDisplay() {
@@ -113,15 +118,21 @@ function startFireworks() {
     }, 300);
 }
 
-// Create a single firework
+// Create a firework explosion
 function createFirework() {
     const firework = document.createElement("div");
     firework.className = "firework";
     firework.style.left = `${Math.random() * 100}%`;
     firework.style.top = `${Math.random() * 70}%`;
     firework.style.backgroundColor = getRandomColor();
+    firework.style.width = "15px";
+    firework.style.height = "15px";
+    firework.style.borderRadius = "50%";
+    firework.style.position = "absolute";
+    firework.style.animation = "explode 1s ease-out";
+
     fireworksContainer.appendChild(firework);
-    setTimeout(() => firework.remove(), 800);
+    setTimeout(() => firework.remove(), 1000);
 }
 
 // Get a random color for fireworks
