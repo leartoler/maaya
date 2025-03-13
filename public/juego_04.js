@@ -29,6 +29,9 @@ const wrongSound = new Audio("https://luummaaya.neocities.org/Sonidos/wrong.mp3"
 const winSound = new Audio("https://luummaaya.neocities.org/Sonidos/win.mp3");
 const loseSound = new Audio("https://luummaaya.neocities.org/Sonidos/lose.mp3");
 
+const fireworksContainer = document.createElement("div");
+fireworksContainer.id = "fireworks-container";
+document.body.appendChild(fireworksContainer);
 
 
 
@@ -55,10 +58,12 @@ function handleGuess(letter, btn) {
     btn.disabled = true;
     if (selectedWord.includes(letter)) {
         guessedLetters.push(letter);
+        btn.classList.add("correct");
         correctSound.play();
     } else {
         attempts--;
         attemptsSpan.textContent = attempts;
+        btn.classList.add("wrong");
         wrongSound.play();
     }
     checkGameStatus();
@@ -72,11 +77,13 @@ function checkGameStatus() {
         showWordInfo();
         lettersDiv.innerHTML = "";
         winSound.play();
+        startFireworks();
     } else if (attempts === 0) {
         message.textContent = `Perdiste. La palabre era "${selectedWord}"`;
+        loseSound.play();
         showWordInfo();
         lettersDiv.innerHTML = "";
-        loseSound.play();
+
     }
 }
 
@@ -86,6 +93,51 @@ function showWordInfo() {
     wordMeaning.textContent = words[selectedWord];
     modal.style.display = "flex";
 }
+
+// 🎆 Fireworks effect
+function startFireworks() {
+    fireworksContainer.style.display = "block";
+
+    let count = 0;
+    const interval = setInterval(() => {
+        if (count > 5) {
+            clearInterval(interval);
+            fireworksContainer.style.display = "none";
+        } else {
+            createFirework();
+        }
+        count++;
+    }, 500);
+}
+
+// Create a single firework
+function createFirework() {
+    const firework = document.createElement("div");
+    firework.style.position = "absolute";
+    firework.style.width = "10px";
+    firework.style.height = "10px";
+    firework.style.backgroundColor = getRandomColor();
+    firework.style.borderRadius = "50%";
+    firework.style.left = `${Math.random() * 100}%`;
+    firework.style.top = `${Math.random() * 100}%`;
+    firework.style.opacity = "1";
+    firework.style.transition = "opacity 1s ease-out";
+
+    fireworksContainer.appendChild(firework);
+
+    setTimeout(() => {
+        firework.style.opacity = "0";
+        setTimeout(() => firework.remove(), 1000);
+    }, 500);
+}
+
+// Get a random color for fireworks
+function getRandomColor() {
+    const colors = ["red", "blue", "yellow", "green", "orange", "purple"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+
 
 // Restart the game
 function restartGame() {
