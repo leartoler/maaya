@@ -14,11 +14,13 @@ const words = {
 let selectedWord = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)];
 let guessedLetters = [];
 let attempts = 6;
+let score = 0;
 
 const wordDisplay = document.getElementById("word-display");
 const lettersDiv = document.getElementById("letters");
 const message = document.getElementById("message");
 const attemptsSpan = document.getElementById("attempts");
+const scoreSpan = document.getElementById("score");
 const modal = document.getElementById("word-info-modal");
 const wordTitle = document.getElementById("word-title");
 const wordMeaning = document.getElementById("word-meaning");
@@ -29,9 +31,8 @@ const wrongSound = new Audio("https://luummaaya.neocities.org/Sonidos/wrong.mp3"
 const winSound = new Audio("https://luummaaya.neocities.org/Sonidos/win.mp3");
 const loseSound = new Audio("https://luummaaya.neocities.org/Sonidos/lose.mp3");
 
-const fireworksContainer = document.createElement("div");
-fireworksContainer.id = "fireworks-container";
-document.body.appendChild(fireworksContainer);
+document.body.insertAdjacentHTML("beforeend", '<div id="fireworks-container"></div>');
+const fireworksContainer = document.getElementById("fireworks-container");
 
 
 
@@ -44,6 +45,7 @@ function updateWordDisplay() {
 
 // Create letter buttons
 function createLetterButtons() {
+    lettersDiv.innerHTML = "";
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     alphabet.split("").forEach(letter => {
         const btn = document.createElement("button");
@@ -77,12 +79,16 @@ function checkGameStatus() {
         showWordInfo();
         lettersDiv.innerHTML = "";
         winSound.play();
+        score += 10;
+        scoreSpan.textContent = score;
         startFireworks();
     } else if (attempts === 0) {
         message.textContent = `Perdiste. La palabre era "${selectedWord}"`;
         loseSound.play();
         showWordInfo();
         lettersDiv.innerHTML = "";
+        score = 0;
+        scoreSpan.textContent = score;
 
     }
 }
@@ -96,44 +102,35 @@ function showWordInfo() {
 
 // 🎆 Fireworks effect
 function startFireworks() {
+    fireworksContainer.innerHTML = "";
     fireworksContainer.style.display = "block";
 
     let count = 0;
     const interval = setInterval(() => {
-        if (count > 5) {
+        if (count > 10) {
             clearInterval(interval);
             fireworksContainer.style.display = "none";
         } else {
             createFirework();
         }
         count++;
-    }, 500);
+    }, 300);
 }
 
 // Create a single firework
 function createFirework() {
     const firework = document.createElement("div");
-    firework.style.position = "absolute";
-    firework.style.width = "10px";
-    firework.style.height = "10px";
-    firework.style.backgroundColor = getRandomColor();
-    firework.style.borderRadius = "50%";
+    firework.className = "firework";
     firework.style.left = `${Math.random() * 100}%`;
-    firework.style.top = `${Math.random() * 100}%`;
-    firework.style.opacity = "1";
-    firework.style.transition = "opacity 1s ease-out";
-
+    firework.style.top = `${Math.random() * 70}%`;
+    firework.style.backgroundColor = getRandomColor();
     fireworksContainer.appendChild(firework);
-
-    setTimeout(() => {
-        firework.style.opacity = "0";
-        setTimeout(() => firework.remove(), 1000);
-    }, 500);
+    setTimeout(() => firework.remove(), 800);
 }
 
 // Get a random color for fireworks
 function getRandomColor() {
-    const colors = ["red", "blue", "yellow", "green", "orange", "purple"];
+    const colors = ["red", "blue", "yellow", "green", "orange", "purple", "pink", "white"];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
@@ -147,7 +144,6 @@ function restartGame() {
     attempts = 6;
     message.textContent = "";
     attemptsSpan.textContent = attempts;
-    lettersDiv.innerHTML = "";
     updateWordDisplay();
     createLetterButtons();
 }
@@ -160,3 +156,4 @@ closeModal.onclick = () => {
 // Initialize game
 updateWordDisplay();
 createLetterButtons();
+scoreSpan.textContent = score;
