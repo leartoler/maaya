@@ -14,13 +14,11 @@ const words = {
 let selectedWord = Object.keys(words)[Math.floor(Math.random() * Object.keys(words).length)];
 let guessedLetters = [];
 let attempts = 6;
-let score = 0;
 
 const wordDisplay = document.getElementById("word-display");
 const lettersDiv = document.getElementById("letters");
 const message = document.getElementById("message");
 const attemptsSpan = document.getElementById("attempts");
-const scoreSpan = document.getElementById("score");
 const modal = document.getElementById("word-info-modal");
 const wordTitle = document.getElementById("word-title");
 const wordMeaning = document.getElementById("word-meaning");
@@ -31,7 +29,6 @@ const wrongSound = new Audio("https://luummaaya.neocities.org/Sonidos/wrong.mp3"
 const winSound = new Audio("https://luummaaya.neocities.org/Sonidos/win.mp3");
 const loseSound = new Audio("https://luummaaya.neocities.org/Sonidos/lose.mp3");
 
-// 🎆 Fireworks container
 const fireworksContainer = document.createElement("div");
 fireworksContainer.id = "fireworks-container";
 document.body.appendChild(fireworksContainer);
@@ -47,7 +44,6 @@ function updateWordDisplay() {
 
 // Create letter buttons
 function createLetterButtons() {
-    lettersDiv.innerHTML = "";
     const alphabet = "abcdefghijklmnopqrstuvwxyz";
     alphabet.split("").forEach(letter => {
         const btn = document.createElement("button");
@@ -78,19 +74,16 @@ function handleGuess(letter, btn) {
 function checkGameStatus() {
     if (selectedWord.split("").every(letter => guessedLetters.includes(letter))) {
         message.textContent = "Ganaste";
-        winSound.play();
         showWordInfo();
         lettersDiv.innerHTML = "";
-        score += 10;
-        scoreSpan.textContent = score;
+        winSound.play();
         startFireworks();
     } else if (attempts === 0) {
         message.textContent = `Perdiste. La palabre era "${selectedWord}"`;
         loseSound.play();
         showWordInfo();
         lettersDiv.innerHTML = "";
-        score = 0;
-        scoreSpan.textContent = score;
+
     }
 }
 
@@ -103,41 +96,44 @@ function showWordInfo() {
 
 // 🎆 Fireworks effect
 function startFireworks() {
-    fireworksContainer.innerHTML = "";
     fireworksContainer.style.display = "block";
 
     let count = 0;
     const interval = setInterval(() => {
-        if (count > 10) {
+        if (count > 5) {
             clearInterval(interval);
             fireworksContainer.style.display = "none";
         } else {
             createFirework();
         }
         count++;
-    }, 300);
+    }, 500);
 }
 
-// Create a firework explosion
+// Create a single firework
 function createFirework() {
     const firework = document.createElement("div");
-    firework.className = "firework";
-    firework.style.left = `${Math.random() * 100}%`;
-    firework.style.top = `${Math.random() * 70}%`;
-    firework.style.backgroundColor = getRandomColor();
-    firework.style.width = "15px";
-    firework.style.height = "15px";
-    firework.style.borderRadius = "50%";
     firework.style.position = "absolute";
-    firework.style.animation = "explode 1s ease-out";
+    firework.style.width = "10px";
+    firework.style.height = "10px";
+    firework.style.backgroundColor = getRandomColor();
+    firework.style.borderRadius = "50%";
+    firework.style.left = `${Math.random() * 100}%`;
+    firework.style.top = `${Math.random() * 100}%`;
+    firework.style.opacity = "1";
+    firework.style.transition = "opacity 1s ease-out";
 
     fireworksContainer.appendChild(firework);
-    setTimeout(() => firework.remove(), 1000);
+
+    setTimeout(() => {
+        firework.style.opacity = "0";
+        setTimeout(() => firework.remove(), 1000);
+    }, 500);
 }
 
 // Get a random color for fireworks
 function getRandomColor() {
-    const colors = ["red", "blue", "yellow", "green", "orange", "purple", "pink", "white"];
+    const colors = ["red", "blue", "yellow", "green", "orange", "purple"];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
@@ -151,7 +147,7 @@ function restartGame() {
     attempts = 6;
     message.textContent = "";
     attemptsSpan.textContent = attempts;
-    scoreSpan.textContent = score;
+    lettersDiv.innerHTML = "";
     updateWordDisplay();
     createLetterButtons();
 }
@@ -164,4 +160,3 @@ closeModal.onclick = () => {
 // Initialize game
 updateWordDisplay();
 createLetterButtons();
-scoreSpan.textContent = score;
