@@ -24,6 +24,9 @@ const wordTitle = document.getElementById("word-title");
 const wordMeaning = document.getElementById("word-meaning");
 const closeModal = document.querySelector(".close");
 
+modal.style.display = "none";
+
+
 const correctSound = new Audio("https://luummaaya.neocities.org/Sonidos/correct.mp3");
 const wrongSound = new Audio("https://luummaaya.neocities.org/Sonidos/wrong.mp3");
 const winSound = new Audio("https://luummaaya.neocities.org/Sonidos/win.mp3");
