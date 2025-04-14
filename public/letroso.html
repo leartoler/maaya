@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Letroso</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+    #grid {
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 300px;
+    }
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+    .cell {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #ccc;
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+    }
+    .correct { background-color: #4CAF50; color: white; }
+    .present { background-color: #FFA500; color: white; }
+    .absent { background-color: #ccc; color: white; }
+    #guess-input {
+      font-size: 1.5rem;
+      padding: 5px;
+      width: 120px;
+      text-align: center;
+    }
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mini Letroso</h1>
+  <div id="grid"></div>
+
+  <input type="text" id="guess-input" maxlength="5" placeholder="5 letras" autofocus>
+  <button onclick="submitGuess()">Adivinar</button>
+
+  <div id="message"></div>
+
+  <script>
+    const solution = "ANDY"; // Puedes cambiar esta palabra
+    let attempts = [];
+    const maxAttempts = 6;
+
+    function submitGuess() {
+      const input = document.getElementById("guess-input");
+      const guess = input.value.toUpperCase();
+
+      if (guess.length !== 5) {
+        showMessage("La palabra debe tener 5 letras.");
+        return;
+      }
+
+      if (attempts.length >= maxAttempts) {
+        showMessage("¡Se acabaron los intentos! La palabra era " + solution);
+        return;
+      }
+
+      attempts.push(guess);
+      renderGrid();
+      input.value = "";
+
+      if (guess === solution) {
+        showMessage("¡Correcto! 🎉");
+        document.getElementById("guess-input").disabled = true;
+      } else if (attempts.length === maxAttempts) {
+        showMessage("¡Has perdido! La palabra era " + solution);
+        document.getElementById("guess-input").disabled = true;
+      } else {
+        showMessage("Intenta de nuevo");
+      }
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById("grid");
+      grid.innerHTML = "";
+
+      for (let word of attempts) {
+        const row = document.createElement("div");
+        row.classList.add("row");
+
+        for (let i = 0; i < 5; i++) {
+          const cell = document.createElement("div");
+          cell.classList.add("cell");
+
+          if (word[i] === solution[i]) {
+            cell.classList.add("correct");
+          } else if (solution.includes(word[i])) {
+            cell.classList.add("present");
+          } else {
+            cell.classList.add("absent");
+          }
+
+          cell.textContent = word[i];
+          row.appendChild(cell);
+        }
+
+        grid.appendChild(row);
+      }
+    }
+
+    function showMessage(msg) {
+      document.getElementById("message").textContent = msg;
+    }
+
+    // Permitir presionar Enter
+    document.getElementById("guess-input").addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        submitGuess();
+      }
+    });
+  </script>
+
+</body>
+</html>
